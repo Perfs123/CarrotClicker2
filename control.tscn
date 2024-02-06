@@ -1,0 +1,223 @@
+[gd_scene load_steps=12 format=3 uid="uid://d15gss7lwhc2l"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_lrerl"]
+[ext_resource type="AudioStream" uid="uid://rqjxoqys7f04" path="res://HARDSTYLE2.ogg" id="2_0hv81"]
+[ext_resource type="Texture2D" uid="uid://c8yklanvuglya" path="res://kynoscarrot.png" id="2_3ndib"]
+[ext_resource type="Script" path="res://ColorRect.gd" id="2_45n8i"]
+[ext_resource type="AudioStream" uid="uid://bv4au2s3wbp7b" path="res://celebrate.ogg" id="3_mbk6h"]
+[ext_resource type="Script" path="res://Kynoscarrot.gd" id="4_g6kr5"]
+[ext_resource type="AudioStream" uid="uid://dgnue215ioi7c" path="res://Carrot/carrot1.ogg" id="6_f5tht"]
+[ext_resource type="AudioStream" uid="uid://dy285lrxy8yh7" path="res://Carrot/carrot2.ogg" id="7_t3n8k"]
+[ext_resource type="AudioStream" uid="uid://bs03xddmv5tq" path="res://Carrot/carrot3.ogg" id="8_6vf5q"]
+[ext_resource type="AudioStream" uid="uid://c6nf77m6x18jv" path="res://Carrot/carrot4.ogg" id="9_nyei6"]
+
+[sub_resource type="Theme" id="Theme_wcuoy"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wcuoy")
+script = ExtResource("1_lrerl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 651.0
+script = ExtResource("2_45n8i")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 156.0
+offset_right = 1243.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0.819608, 0.415686, 0.0862745, 1)
+theme_override_font_sizes/font_size = 246
+text = "CARROT"
+
+[node name="AudioStreamCelebrate" type="AudioStreamPlayer" parent="ColorRect"]
+stream = ExtResource("3_mbk6h")
+
+[node name="CheckBeastMode" type="CheckButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 542.0
+offset_top = 558.0
+offset_right = 586.0
+offset_bottom = 582.0
+keep_pressed_outside = true
+
+[node name="KynoscarrotClick" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.611765, 0.611765, 0.611765, 1)
+position = Vector2(587, 370)
+rotation = 0.00118532
+scale = Vector2(0.948703, 0.992092)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="carrotShadow" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(593, 366)
+rotation = 0.00118532
+scale = Vector2(1.02793, 1.09025)
+texture = ExtResource("2_3ndib")
+
+[node name="Kynoscarrot" type="Sprite2D" parent="."]
+position = Vector2(586, 367)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(194, 359)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(922, 373)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(588, 116)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(218, 114)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(952, 123)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(369, 519)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Kynoscarrot8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(722, 516)
+rotation = 0.00118532
+scale = Vector2(1.01201, 1.07333)
+texture = ExtResource("2_3ndib")
+script = ExtResource("4_g6kr5")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.5
+offset_top = 69.0
+offset_right = 14.5
+offset_bottom = 139.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "0"
+
+[node name="Click1" type="Button" parent="Score"]
+modulate = Color(0.780392, 0.576471, 0.996078, 0)
+self_modulate = Color(0, 0, 0, 0.870588)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = 142.0
+offset_right = 95.0
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="carrot1" type="AudioStreamPlayer" parent="Score/Click1"]
+stream = ExtResource("6_f5tht")
+
+[node name="carrot2" type="AudioStreamPlayer" parent="Score/Click1"]
+stream = ExtResource("7_t3n8k")
+
+[node name="carrot3" type="AudioStreamPlayer" parent="Score/Click1"]
+stream = ExtResource("8_6vf5q")
+
+[node name="carrot4" type="AudioStreamPlayer" parent="Score/Click1"]
+stream = ExtResource("9_nyei6")
+
+[node name="CheckAuto" type="CheckButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 542.0
+offset_top = 580.0
+offset_right = 586.0
+offset_bottom = 604.0
+
+[node name="Timer" type="Timer" parent="CheckAuto"]
+wait_time = 0.097
+
+[node name="TimerBoost" type="Timer" parent="CheckAuto"]
+wait_time = 3.652
+
+[node name="TimerBoost2" type="Timer" parent="CheckAuto"]
+wait_time = 5.814
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0hv81")
+
+[node name="Sound" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1087.0
+offset_top = 4.0
+offset_right = 1141.0
+offset_bottom = 27.0
+text = "Sound "
+
+[node name="soundCheck" type="CheckButton" parent="Sound"]
+layout_mode = 0
+offset_left = -47.0
+offset_right = -3.0
+offset_bottom = 24.0
+button_pressed = true
+
+[connection signal="visibility_changed" from="ColorRect" to="." method="_on_color_rect_visibility_changed"]
+[connection signal="visibility_changed" from="ColorRect" to="ColorRect" method="_on_visibility_changed"]
+[connection signal="toggled" from="CheckBeastMode" to="." method="_on_check_beast_toggled"]
+[connection signal="pressed" from="Score/Click1" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="CheckAuto" to="." method="_on_check_auto_toggled"]
+[connection signal="timeout" from="CheckAuto/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CheckAuto/TimerBoost" to="." method="_on_timer_boost_timeout"]
+[connection signal="timeout" from="CheckAuto/TimerBoost2" to="." method="_on_timer_boost_2_timeout"]
+[connection signal="toggled" from="Sound/soundCheck" to="." method="_on_check_button_toggled"]

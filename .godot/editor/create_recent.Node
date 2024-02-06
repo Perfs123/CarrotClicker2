@@ -1,0 +1,15 @@
+Sprite2D
+AudioStreamPlayer
+CheckButton
+Label
+Button
+ColorRect
+Node2D
+Area2D
+Control
+PointLight2D
+DirectionalLight2D
+SpotLight3D
+DirectionalLight3D
+Node
+Timer

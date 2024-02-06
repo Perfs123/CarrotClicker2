@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1i02qb1h8pmb"]
+
+[ext_resource type="Script" path="res://upgrade_100.gd" id="1_fcnud"]
+
+[node name="Upgrade100" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcnud")
+
+[node name="Upgrade" type="Button" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 43.0
+offset_right = 197.0
+offset_bottom = 74.0
+text = "UPGRADE to +2"
+
+[connection signal="pressed" from="Upgrade" to="." method="_on_upgrade_pressed"]
