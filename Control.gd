@@ -50,9 +50,9 @@ func _process(delta):
 	else:
 		pass
 		
-	if clickCountLabel.text.to_int() == 5:
+	if clickCountLabel.text.to_int() == 4: # for beast mode
 		checkBeastMode.visible = true
-	elif clickCountLabel.text.to_int() >= 1000:
+	elif clickCountLabel.text.to_int() >= 4: # for auto clicker
 		checkAuto.visible = true
 	else:
 		pass
@@ -61,25 +61,25 @@ func toggleRotation():
 	rotateEnabled = !rotateEnabled
 
 
-func rotate_carrot(delta):
+func rotate_carrot(delta): # for beast mode
 	carrot.rotation_degrees += 300 * delta
 	carrotSmall.rotation_degrees += 300 * delta
-	carrotShadow.rotation_degrees += 300 * delta
+	carrotShadow.rotation_degrees += 300 * delta 
 
 
 func update_label():
-	clickCountLabel.text = str(clickCount)
+	clickCountLabel.text = str(clickCount) #update counter
 
 
-func _on_button_pressed():
+func _on_button_pressed(): #when pressing carrot
 	var random_index = randi() % carrot_players.size()
 	carrot_players[random_index].play()
 	
 	clickCount += clickAmount
 	update_label()
 	
-	
-	carrot.visible = not carrot.visible
+	#flicker to show the carrot going down and smaller
+	carrot.visible = not carrot.visible 
 	carrotSmall.visible = not carrotSmall.visible
 	carrotShadow.visible = not carrotShadow.visible
 
@@ -132,12 +132,7 @@ func _on_timer_boost_2_timeout():
 	auto_click2()
 
 
-
-func _on_menu_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
-
-
-func _on_check_button_toggled(toggled_on):
+func _on_check_button_toggled(toggled_on): #mute sound
 	if toggled_on:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 0)
 	else:

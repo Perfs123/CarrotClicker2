@@ -24,9 +24,11 @@ var rewardTen: int = 10
 var audio_player: AudioStreamPlayer
 var carrotShadow : Sprite2D
 var carrotSmall : Sprite2D
+var timerSwitch : Timer
+var continue_process : bool = true
 
 func _ready():
-	
+	timerSwitch = $TimerSwitch
 	carrotSmall = $"../KynoscarrotClick"
 	carrotShadow = $"../carrotShadow"
 	clickCountLabel = $"../Score"
@@ -49,13 +51,17 @@ func _ready():
 
 
 func _process(delta):
+	if not continue_process:
+		$".".visible = false
 	timerColour += delta
 
 	if rotateEnabled:
 		rotate_carrot(delta)
 
-	if clickCountLabel.text.to_int() >= 3 and timerColour >= strobe_interval:
+	if clickCountLabel.text.to_int() >= 15000 and timerColour >= strobe_interval: # label amount to activate strobe
 		$".".visible = true
+		checkBeastMode.button_pressed = false
+		checkAuto.button_pressed = false
 		if self.color == Color(1, 1, 1):  # If color is white
 			self.color = Color(0, 0, 0)   # Set color to black
 		else:
@@ -63,7 +69,7 @@ func _process(delta):
 		timerColour = 0.0
 
 func toggleRotation():
-	rotateEnabled = true
+	rotateEnabled = !rotateEnabled
 
 
 
@@ -94,5 +100,32 @@ func _on_visibility_changed():
 	carrot6.visible = true
 	carrot7.visible = true
 	carrot8.visible = true
-	
+	timerSwitch.start()
 	toggleRotation()
+
+
+func _on_timer_timeout():
+	clickCountLabel.visible = true
+	checkAuto.visible = true
+	checkBeastMode.visible = true
+	carrotShadow.visible = true
+	carrotSmall.visible = false
+	audio_player_celebrate.stop()
+	audio_player.stop()
+	carrot.visible = true
+	carrot2.visible = false
+	carrot3.visible = false
+	carrot4.visible = false
+	carrot5.visible = false
+	carrot6.visible = false
+	carrot7.visible = false
+	carrot8.visible = false
+	continue_process = false
+	carrot.rotation_degrees = 0
+	toggleRotation()
+	
+	queue_free()
+	
+
+
+
