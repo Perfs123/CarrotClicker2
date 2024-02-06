@@ -37,6 +37,7 @@ func _ready():
 	update_label()
 	
 	
+	
 	for i in range(4):
 		var carrot_player = get_node("Score/Click1/carrot" + str(i + 1))
 		carrot_players.append(carrot_player)
@@ -50,9 +51,9 @@ func _process(delta):
 	else:
 		pass
 		
-	if clickCountLabel.text.to_int() == 4: # for beast mode
+	if clickCountLabel.text.to_int() == 100 : # for beast mode
 		checkBeastMode.visible = true
-	elif clickCountLabel.text.to_int() >= 4: # for auto clicker
+	elif clickCountLabel.text.to_int() >= 1000 : # for auto clicker
 		checkAuto.visible = true
 	else:
 		pass
@@ -68,7 +69,21 @@ func rotate_carrot(delta): # for beast mode
 
 
 func update_label():
-	clickCountLabel.text = str(clickCount) #update counter
+	
+	clickCountLabel.text = format_number_with_commas(clickCount) #update counter
+
+func format_number_with_commas(number):
+	var formatted_number = ""
+	var str_number = str(number)
+	var count = 0
+	
+	for i in range(str_number.length() - 1, -1, -1):
+		formatted_number = str_number[i] + formatted_number
+		count += 1
+		if count % 3 == 0 and i != 0:
+			formatted_number = "," + formatted_number
+	
+	return formatted_number
 
 
 func _on_button_pressed(): #when pressing carrot

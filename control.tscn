@@ -1,17 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://d15gss7lwhc2l"]
+[gd_scene load_steps=17 format=3 uid="uid://d15gss7lwhc2l"]
 
 [ext_resource type="Script" path="res://Control.gd" id="1_lrerl"]
 [ext_resource type="AudioStream" uid="uid://rqjxoqys7f04" path="res://HARDSTYLE2.ogg" id="2_0hv81"]
 [ext_resource type="Texture2D" uid="uid://c8yklanvuglya" path="res://kynoscarrot.png" id="2_3ndib"]
 [ext_resource type="Script" path="res://ColorRect.gd" id="2_45n8i"]
+[ext_resource type="Shader" path="res://rain.gdshader" id="2_uddik"]
+[ext_resource type="AudioStream" uid="uid://d2txqpr2sscp0" path="res://suffermeme.ogg" id="3_118v4"]
 [ext_resource type="AudioStream" uid="uid://bv4au2s3wbp7b" path="res://celebrate.ogg" id="3_mbk6h"]
 [ext_resource type="Script" path="res://Kynoscarrot.gd" id="4_g6kr5"]
+[ext_resource type="Script" path="res://ColorRect2.gd" id="4_wcwk8"]
 [ext_resource type="AudioStream" uid="uid://dgnue215ioi7c" path="res://Carrot/carrot1.ogg" id="6_f5tht"]
+[ext_resource type="AudioStream" uid="uid://d0pdxfpix7tuy" path="res://Rain/rain2.ogg" id="6_tbppg"]
 [ext_resource type="AudioStream" uid="uid://dy285lrxy8yh7" path="res://Carrot/carrot2.ogg" id="7_t3n8k"]
 [ext_resource type="AudioStream" uid="uid://bs03xddmv5tq" path="res://Carrot/carrot3.ogg" id="8_6vf5q"]
 [ext_resource type="AudioStream" uid="uid://c6nf77m6x18jv" path="res://Carrot/carrot4.ogg" id="9_nyei6"]
 
 [sub_resource type="Theme" id="Theme_wcuoy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qrgw1"]
+shader = ExtResource("2_uddik")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.2
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 0.919
+shader_parameter/far_rain_width = 0.278
+shader_parameter/near_rain_transparency = 0.312
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.45098, 0.45098, 0.45098, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -68,6 +86,36 @@ stream = ExtResource("3_mbk6h")
 
 [node name="TimerSwitch" type="Timer" parent="ColorRect"]
 wait_time = 15.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_qrgw1")
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 651.0
+script = ExtResource("4_wcwk8")
+
+[node name="AudioStreamSuffer" type="AudioStreamPlayer" parent="ColorRect2"]
+stream = ExtResource("3_118v4")
+
+[node name="AudioStreamRain" type="AudioStreamPlayer" parent="ColorRect2"]
+stream = ExtResource("6_tbppg")
+
+[node name="TimerWhy" type="Timer" parent="ColorRect2"]
+wait_time = 10.297
+
+[node name="Pls" type="Label" parent="ColorRect2/TimerWhy"]
+visible = false
+offset_left = 226.0
+offset_top = 197.0
+offset_right = 1048.0
+offset_bottom = 465.0
+theme_override_font_sizes/font_size = 196
+text = "Pls leave"
 
 [node name="CheckBeastMode" type="CheckButton" parent="."]
 visible = false
@@ -224,6 +272,9 @@ button_pressed = true
 [connection signal="visibility_changed" from="ColorRect" to="." method="_on_color_rect_visibility_changed"]
 [connection signal="visibility_changed" from="ColorRect" to="ColorRect" method="_on_visibility_changed"]
 [connection signal="timeout" from="ColorRect/TimerSwitch" to="ColorRect" method="_on_timer_timeout"]
+[connection signal="visibility_changed" from="ColorRect2" to="." method="_on_color_rect_visibility_changed"]
+[connection signal="visibility_changed" from="ColorRect2" to="ColorRect2" method="_on_visibility_changed"]
+[connection signal="timeout" from="ColorRect2/TimerWhy" to="ColorRect2" method="_on_timer_why_timeout"]
 [connection signal="toggled" from="CheckBeastMode" to="." method="_on_check_beast_toggled"]
 [connection signal="pressed" from="Score/Click1" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Sound/soundCheck" to="." method="_on_check_button_toggled"]
