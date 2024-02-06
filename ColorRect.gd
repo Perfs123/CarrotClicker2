@@ -58,7 +58,7 @@ func _process(delta):
 	if rotateEnabled:
 		rotate_carrot(delta)
 
-	if clickCountLabel.text.to_int() >=  25000 and timerColour >= strobe_interval: # label amount to activate strobe
+	if clickCountLabel.text.to_int() >=  2 and timerColour >= strobe_interval: # label amount to activate strobe
 		$".".visible = true
 		checkBeastMode.button_pressed = false
 		checkAuto.button_pressed = false

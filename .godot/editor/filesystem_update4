@@ -2,3 +2,4 @@ res://control.tscn
 res://Control.gd
 res://rain.gdshader
 res://rain_and_snow_shader.gdshader
+res://ColorRect.gd
