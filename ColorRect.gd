@@ -22,8 +22,13 @@ var checkBeastMode : CheckButton
 var checkAuto : CheckButton
 var rewardTen: int = 10
 var audio_player: AudioStreamPlayer
+var carrotShadow : Sprite2D
+var carrotSmall : Sprite2D
 
 func _ready():
+	
+	carrotSmall = $"../KynoscarrotClick"
+	carrotShadow = $"../carrotShadow"
 	clickCountLabel = $"../Score"
 	checkBeastMode = $"../CheckBeastMode"
 	checkAuto = $"../CheckAuto"
@@ -49,7 +54,7 @@ func _process(delta):
 	if rotateEnabled:
 		rotate_carrot(delta)
 
-	if clickCountLabel.text.to_int() >= 6333 and timerColour >= strobe_interval:
+	if clickCountLabel.text.to_int() >= 3 and timerColour >= strobe_interval:
 		$".".visible = true
 		if self.color == Color(1, 1, 1):  # If color is white
 			self.color = Color(0, 0, 0)   # Set color to black
@@ -77,8 +82,11 @@ func _on_visibility_changed():
 	clickCountLabel.visible = false
 	checkAuto.visible = false
 	checkBeastMode.visible = false
+	carrotShadow.visible = false
+	carrotSmall.visible = false
 	audio_player_celebrate.play()
 	audio_player.stop()
+	carrot.visible = true
 	carrot2.visible = true
 	carrot3.visible = true
 	carrot4.visible = true

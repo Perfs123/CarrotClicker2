@@ -1,7 +1,3 @@
 res://control.tscn
 res://Control.gd
-res://StrobeLight.gd
 res://ColorRect.gd
-res://Menu.gd
-res://menu.tscn
-res://Global.gd
