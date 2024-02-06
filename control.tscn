@@ -212,8 +212,6 @@ offset_right = -3.0
 offset_bottom = 24.0
 button_pressed = true
 
-[node name="test" type="Sprite2D" parent="."]
-
 [connection signal="visibility_changed" from="ColorRect" to="." method="_on_color_rect_visibility_changed"]
 [connection signal="visibility_changed" from="ColorRect" to="ColorRect" method="_on_visibility_changed"]
 [connection signal="toggled" from="CheckBeastMode" to="." method="_on_check_beast_toggled"]
