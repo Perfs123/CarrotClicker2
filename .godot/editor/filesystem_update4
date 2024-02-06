@@ -1,8 +1,4 @@
 res://control.tscn
 res://Control.gd
-res://ColorRect.gd
-res://ColorRect2.gd
-res://rainvid.ogv
-res://rainchorma.ogv
-res://rain_and_snow_shader.gdshader
 res://rain.gdshader
+res://rain_and_snow_shader.gdshader

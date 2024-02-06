@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Clicker"
+config/name="Carrot Clicker"
+config/version="1.0"
 run/main_scene="res://control.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://kynoscarrot.png"
 
 [display]
 
