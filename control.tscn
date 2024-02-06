@@ -80,7 +80,7 @@ keep_pressed_outside = true
 
 [node name="KynoscarrotClick" type="Sprite2D" parent="."]
 visible = false
-self_modulate = Color(0.611765, 0.611765, 0.611765, 1)
+self_modulate = Color(0.686275, 0.686275, 0.686275, 1)
 position = Vector2(587, 370)
 rotation = 0.00118532
 scale = Vector2(0.948703, 0.992092)
